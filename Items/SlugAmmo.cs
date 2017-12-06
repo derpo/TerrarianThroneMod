@@ -25,7 +25,7 @@ namespace TerrarianThroneMod.Items
             item.rare = 2;
             item.shoot = mod.ProjectileType("Slug");
             item.shootSpeed = 5;
-            item.ammo = AmmoID.Bullet;
+            item.ammo = mod.ItemType("SlugAmmo");
         }
 
         public override void AddRecipes()

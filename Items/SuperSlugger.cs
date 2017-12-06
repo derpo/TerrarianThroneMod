@@ -26,7 +26,7 @@ namespace TerrarianThroneMod.Items
             item.rare = 2;
             item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/SluggerShot");
             item.autoReuse = false;
-            item.useAmmo = AmmoID.Bullet;
+            item.useAmmo = mod.ItemType("SlugAmmo");
             item.ranged = true;
             item.shoot = 1;
             item.shootSpeed = 40;
@@ -34,15 +34,16 @@ namespace TerrarianThroneMod.Items
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            float numberProjectiles = 5;
-            float rotation = MathHelper.ToRadians(15);
-            position += Vector2.Normalize(new Vector2(speedX, speedY)) * 45f;
+            int numberProjectiles = 5;
             for (int i = 0; i < numberProjectiles; i++)
             {
-                Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .2f; // Watch out for dividing by 0 if there is only 1 projectile.
+                Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(15)); // 30 degree spread.
+                                                                                                                // If you want to randomize the speed to stagger the projectiles
+                                                                                                                // float scale = 1f - (Main.rand.NextFloat() * .3f);
+                                                                                                                // perturbedSpeed = perturbedSpeed * scale; 
                 Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
             }
-            return false;
+            return false; // return false because we don't want tmodloader to shoot projectile
         }
 
         public override void AddRecipes()

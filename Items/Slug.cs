@@ -14,9 +14,9 @@ namespace TerrarianThroneMod.Items
         }
         public override void SetDefaults()
         {
-            projectile.width = 44;
-            projectile.height = 22;
-            projectile.aiStyle = 143;
+            projectile.width = 14;
+            projectile.height = 34;
+            projectile.aiStyle = 1;
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.ranged = true;
@@ -27,6 +27,15 @@ namespace TerrarianThroneMod.Items
             projectile.tileCollide = true;
             projectile.extraUpdates = 1;
             aiType = ProjectileID.Bullet;
+        }
+
+        public override void AI()
+        {
+            projectile.velocity *= 0.96f;  // reduce speed by 5%
+            if (projectile.velocity.Length() < 0.9f) // if speed is less than 0.01f, kille the projectile
+            {
+                projectile.Kill();
+            }
         }
 
         public override bool OnTileCollide(Vector2 oldVelocity)

@@ -26,7 +26,7 @@ namespace TerrarianThroneMod.Items
 			item.rare = 2;
             item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/SluggerShot");
             item.autoReuse = false;
-            item.useAmmo = AmmoID.Bullet;
+            item.useAmmo = mod.ItemType("SlugAmmo");
             item.ranged = true;
             item.shoot = 1;
             item.shootSpeed = 10;
