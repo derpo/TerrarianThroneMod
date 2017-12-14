@@ -6,26 +6,26 @@ using Terraria.ModLoader;
 
 namespace TerrarianThroneMod.Items
 {
-    public class NTBulletAmmo : ModItem
+    public class BoltAmmo : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bullet");
+            DisplayName.SetDefault("Bolt");
         }
         public override void SetDefaults()
         {
-            item.damage = 10;
+            item.damage = 15;
             item.ranged = true;
-            item.width = 20;
+            item.width = 18;
             item.height = 24;
             item.maxStack = 999;
             item.consumable = false;
-            item.knockBack = 1;
+            item.knockBack = 7;
             item.value = 10000;
             item.rare = 2;
-            item.shoot = mod.ProjectileType("NTBullet");
+            item.shoot = mod.ProjectileType("Bolt");
             item.shootSpeed = 5;
-            item.ammo = AmmoID.Bullet;
+            item.ammo = mod.ItemType("BoltAmmo");
         }
 
         public override void AddRecipes()

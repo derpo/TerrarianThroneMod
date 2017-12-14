@@ -26,27 +26,28 @@ namespace TerrarianThroneMod.Items
             projectile.ignoreWater = false;
             projectile.tileCollide = true;
             projectile.extraUpdates = 1;
+            projectile.alpha = 255;
             aiType = ProjectileID.Bullet;
         }
 
         public override void AI()
         {
             projectile.velocity *= 0.96f;  // reduce speed by 5%
-            if (projectile.velocity.Length() < 0.9f) // if speed is less than 0.01f, kille the projectile
+            if (projectile.velocity.Length() < 0.8f) // if speed is less than 0.01f, kille the projectile
             {
                 projectile.Kill();
             }
-        }
+        }   
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
             if (projectile.velocity.X != oldVelocity.X)
             {
-                projectile.velocity.X = -oldVelocity.X / 3;
+                projectile.velocity.X = -oldVelocity.X / 1;
             }
             if (projectile.velocity.Y != oldVelocity.Y)
             {
-                projectile.velocity.Y = -oldVelocity.Y / 3;
+                projectile.velocity.Y = -oldVelocity.Y / 1;
             }
 
             Main.PlaySound(2, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/SlugBounce"));
@@ -67,6 +68,7 @@ namespace TerrarianThroneMod.Items
             }
             return true;
         }
+        
 
     }
 }
