@@ -4,6 +4,7 @@ def copy_files
   return unless Gem::Platform.local.os == 'darwin'
   copy_assembly
   copy_assets
+  modify_assets
 end
 
 def target_dir_root
@@ -32,6 +33,13 @@ end
 def copy_assets
   (Dir[File.join(__dir__, '{build,description}.txt')] +
     Dir[File.join(__dir__, '**', '*.{png,wav}')]).each { |asset_file| copy_asset(asset_file) }
+end
+
+def modify_assets
+  build_file = File.join(target_dir_root, 'build.txt')
+  File.open(build_file, 'a') do |f|
+    f.puts "\nnoCompile = true"
+  end
 end
 
 copy_files
