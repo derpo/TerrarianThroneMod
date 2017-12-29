@@ -1,3 +1,4 @@
 author = DerpoTheMagnificent
 version = 0.1
 displayName = Terrarian Throne
+noCompile = true
