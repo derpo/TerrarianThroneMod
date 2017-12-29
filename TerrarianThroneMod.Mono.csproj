@@ -55,7 +55,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <!-- <PostBuildEvent>"C:\Program Files (x86)\Steam\steamapps\common\terraria\Terraria.exe" -build "$(ProjectDir)\" -eac "$(TargetPath)"</PostBuildEvent> -->
-    <!-- <PostBuildEvent>"/Users/chrismo/Library/Application Support/Terraria/ModLoader/Mod Sources/TerrarianThroneMod/bin/Debug/Terraria.exe" -build "$(ProjectDir)\" -eac "$(TargetPath)"</PostBuildEvent> -->
+    <PostBuildEvent>ruby $(ProjectDir)post.build.rb</PostBuildEvent>  
   </PropertyGroup>
 </Project>
