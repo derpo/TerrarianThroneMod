@@ -5,31 +5,36 @@ using Terraria.ModLoader;
 
 namespace TerrarianThroneMod.Items
 {
-    public class Crossbow : ModItem
+    public class HeavyCrossbow : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Crossbow");
-            Tooltip.SetDefault("Fires a deadly bolt at high speeds.");
+            DisplayName.SetDefault("Heavy Crossbow");
+            Tooltip.SetDefault("Fires an extra powerful heavy bolt.");
         }
         public override void SetDefaults()
         {
-            item.damage = 20;
+            item.damage = 50;
             item.noMelee = true;
-            item.width = 44;
-            item.height = 18;
-            item.useTime = 60;
-            item.useAnimation = 60;
+            item.width = 48;
+            item.height = 22;
+            item.useTime = 65;
+            item.useAnimation = 65;
             item.useStyle = 5;
-            item.knockBack = 7;
+            item.knockBack = 10;
             item.value = 10000;
             item.rare = 2;
             item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/BoltShot");
             item.autoReuse = false;
             item.useAmmo = mod.ItemType("BoltAmmo");
             item.ranged = true;
-            item.shoot = mod.ProjectileType("Bolt");
+            item.shoot = mod.ProjectileType("HeavyBolt");
             item.shootSpeed = 30;
+        }
+
+        public override Vector2? HoldoutOffset()
+        {
+            return new Vector2(-2, 0);
         }
 
         public override void AddRecipes()

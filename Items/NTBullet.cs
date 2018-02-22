@@ -39,7 +39,7 @@ namespace TerrarianThroneMod.Items
             {
                 projectile.velocity.Y = -oldVelocity.Y / 0;
             }
-            Main.PlaySound(2, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/BulletHit"));
+            Main.PlaySound(2, (int)projectile.Center.X, (int)projectile.Center.Y, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/BulletHit"));
 
             return false;
         }

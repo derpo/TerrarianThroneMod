@@ -20,7 +20,7 @@ namespace TerrarianThroneMod.Items
             item.height = 22;
             item.useTime = 4;
             item.useAnimation = 12;
-            item.reuseDelay = 14;
+            item.reuseDelay = 5;
             item.useStyle = 5;
             item.knockBack = 1;
             item.value = 10000;

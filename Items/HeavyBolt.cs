@@ -6,11 +6,11 @@ using Terraria.ModLoader;
 
 namespace TerrarianThroneMod.Items
 {
-    public class Bolt : ModProjectile
+    public class HeavyBolt : ModProjectile
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bolt");
+            DisplayName.SetDefault("HeavyBolt");
         }
         public override void SetDefaults()
         {
@@ -20,7 +20,7 @@ namespace TerrarianThroneMod.Items
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.ranged = true;
-            projectile.penetrate = 2;
+            projectile.penetrate = 4;
             projectile.timeLeft = 600;
             projectile.light = 0;
             projectile.ignoreWater = false;

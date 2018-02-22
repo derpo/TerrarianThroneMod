@@ -37,7 +37,16 @@ namespace TerrarianThroneMod.Items
             {
                 projectile.Kill();
             }
-        }   
+
+            projectile.frameCounter++; //Increases the counter for the frames
+            if (projectile.frameCounter >= 6) //Detects if the counter is a certain number, since it is 6, it'll change a frame every 6 frames, the higher the number the longer it takes for frames to change
+            {
+                projectile.frameCounter = 0; //Set the frame counter back to 0
+                projectile.frame = (projectile.frame + 1) % 6; //Sets the frame, note that the number (in this case 16) HAS To be the amount of frames the projectile has, or you'll get invisible frames
+            }
+
+
+        }
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
@@ -68,7 +77,12 @@ namespace TerrarianThroneMod.Items
             }
             return true;
         }
-        
 
+        public override void Kill(int timeLeft)
+        {
+            Player owner = Main.player[projectile.owner];
+            Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, projectile.velocity.X, projectile.velocity.Y, mod.ProjectileType("Slugdeath"), 0, 0, Main.myPlayer);
+            
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace TerrarianThroneMod.Items
             item.knockBack = 7;
             item.value = 10000;
             item.rare = 2;
-            item.shoot = mod.ProjectileType("Bolt");
+            //item.shoot = mod.ProjectileType("Bolt");
             item.shootSpeed = 5;
             item.ammo = mod.ItemType("BoltAmmo");
         }

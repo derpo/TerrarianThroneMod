@@ -14,7 +14,7 @@ namespace TerrarianThroneMod.Items
         }
         public override void SetDefaults()
         {
-            item.damage = 10;
+            item.damage = 70;
             item.noMelee = true;
             item.width = 42;
             item.height = 14;
