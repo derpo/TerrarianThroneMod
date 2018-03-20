@@ -5,30 +5,30 @@ using Terraria.ModLoader;
 
 namespace TerrarianThroneMod.Items
 {
-    public class SuperSlugger : ModItem
+    public class Shotgun : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("SuperSlugger");
-            Tooltip.SetDefault("Fires 5 strong, short-ranged slugs in a controlled spread.");
+            DisplayName.SetDefault("Wasteland Shotgun");
+            Tooltip.SetDefault("'Not your average shotgun'");
         }
         public override void SetDefaults()
         {
-            item.damage = 70;
+            item.damage = 7;
             item.noMelee = true;
-            item.width = 42;
-            item.height = 14;
-            item.useTime = 60;
-            item.useAnimation = 60;
+            item.width = 44;
+            item.height = 18;
+            item.useTime = 45;
+            item.useAnimation = 45;
             item.useStyle = 5;
-            item.knockBack = 10;
+            item.knockBack = 3;
             item.value = 10000;
             item.rare = 2;
-            item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/SuperSlugShot");
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/ShotgunShot");
             item.autoReuse = false;
             item.useAmmo = mod.ItemType("SlugAmmo");
             item.ranged = true;
-            item.shoot = mod.ProjectileType("Slug");
+            item.shoot = mod.ProjectileType("Shell");
             item.shootSpeed = 40;
         }
 

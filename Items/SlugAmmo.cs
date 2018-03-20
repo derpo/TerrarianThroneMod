@@ -14,7 +14,7 @@ namespace TerrarianThroneMod.Items
         }
         public override void SetDefaults()
         {
-            item.damage = 10;
+            item.damage = 5;
             item.ranged = true;
             item.width = 16;
             item.height = 24;
@@ -22,8 +22,7 @@ namespace TerrarianThroneMod.Items
             item.consumable = false;
             item.knockBack = 10;
             item.value = 10000;
-            item.rare = 2;
-            item.shoot = mod.ProjectileType("Slug");
+            item.rare = 2;           
             item.shootSpeed = 5;
             item.ammo = mod.ItemType("SlugAmmo");
         }

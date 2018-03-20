@@ -5,32 +5,36 @@ using Terraria.ModLoader;
 
 namespace TerrarianThroneMod.Items
 {
-    public class AssaultRifle : ModItem
+    public class PCannon : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Assault Rifle");
-            Tooltip.SetDefault("Fires a 3-round burst of bullets.");
+            DisplayName.SetDefault("Plasma Cannon");
+            Tooltip.SetDefault("'Just wait till you see the SPC...'");
         }
         public override void SetDefaults()
         {
-            item.damage = 5;
+            item.damage = 50;
             item.noMelee = true;
-            item.width = 52;
+            item.width = 36;
             item.height = 22;
-            item.useTime = 4;
-            item.useAnimation = 12;
-            item.reuseDelay = 5;
+            item.useTime = 75;
+            item.useAnimation = 75;
             item.useStyle = 5;
-            item.knockBack = 1;
+            item.knockBack = 7;
             item.value = 10000;
             item.rare = 2;
-            item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/AssaultRifleShot");
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/PCannonShot");
             item.autoReuse = false;
-            item.useAmmo = AmmoID.Bullet;
+            item.useAmmo = mod.ItemType("EnergyAmmo");
             item.ranged = true;
-            item.shoot = 1;
-            item.shootSpeed = 10;
+            item.shoot = mod.ProjectileType("PCannonBallBig");
+            item.shootSpeed = 1;
+        }
+
+        public override Vector2? HoldoutOffset()
+        {
+            return new Vector2(-2, 0);
         }
 
         public override void AddRecipes()
@@ -40,11 +44,6 @@ namespace TerrarianThroneMod.Items
             recipe.AddTile(TileID.WorkBenches);
             recipe.SetResult(this);
             recipe.AddRecipe();
-        }
-
-        public override Vector2? HoldoutOffset()
-        {
-            return new Vector2(-2, 0);
         }
     }
 }

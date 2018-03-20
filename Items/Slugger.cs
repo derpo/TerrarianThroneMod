@@ -28,7 +28,7 @@ namespace TerrarianThroneMod.Items
             item.autoReuse = false;
             item.useAmmo = mod.ItemType("SlugAmmo");
             item.ranged = true;
-            item.shoot = 1;
+            item.shoot = mod.ProjectileType("Slug");
             item.shootSpeed = 10;
 		}
 
