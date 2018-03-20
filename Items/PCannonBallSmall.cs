@@ -46,18 +46,17 @@ namespace TerrarianThroneMod.Items
         {
             Player owner = Main.player[projectile.owner];
             //Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 0, mod.ProjectileType("PlasmaExplosion"), 50, 10, Main.myPlayer);
-            float spread = 30f * 0.0174f;
+            float spread = 360f * 0.0174f;
             double startAngle = Math.Atan2(projectile.velocity.X, projectile.velocity.Y) - spread / 2;
-            double deltaAngle = spread / 8f;
+            double deltaAngle = spread / 10f;
             double offsetAngle;
             int i;
             if (projectile.owner == Main.myPlayer)
             {
-                for (i = 0; i < 5; i++)
+                for (i = 0; i < 10; i++)
                 {
-                    offsetAngle = (startAngle + deltaAngle * (i + i * i) / 2f) + 32f * i;
+                    offsetAngle = (startAngle + deltaAngle * i);
                     Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 5f), (float)(Math.Cos(offsetAngle) * 5f), mod.ProjectileType("PlasmaBallBig"), 20, 7, Main.myPlayer, 0f, 0f);
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 5f), (float)(-Math.Cos(offsetAngle) * 5f), mod.ProjectileType("PlasmaBallBig"), 20, 7, Main.myPlayer, 0f, 0f);
                 }
             }
 
@@ -81,21 +80,20 @@ namespace TerrarianThroneMod.Items
             Main.PlaySound(2, (int)projectile.Center.X, (int)projectile.Center.Y, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/PlasmaHit"));
             //Player owner = Main.player[projectile.owner];
             //Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 0, mod.ProjectileType("PlasmaExplosion"), 50, 10, Main.myPlayer);
-            float spread = 30f * 0.0174f;
+            float spread = 360f * 0.0174f;
             double startAngle = Math.Atan2(projectile.velocity.X, projectile.velocity.Y) - spread / 2;
-            double deltaAngle = spread / 8f;
+            double deltaAngle = spread / 10f;
             double offsetAngle;
             int i;
             if (projectile.owner == Main.myPlayer)
             {
-                for (i = 0; i < 5; i++)
-               {
-                   offsetAngle = (startAngle + deltaAngle * (i + i * i) / 2f) + 32f * i;
+                for (i = 0; i < 10; i++)
+                {
+                    offsetAngle = (startAngle + deltaAngle * i);
                     Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 5f), (float)(Math.Cos(offsetAngle) * 5f), mod.ProjectileType("PlasmaBallBig"), 20, 7, Main.myPlayer, 0f, 0f);
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 5f), (float)(-Math.Cos(offsetAngle) * 5f), mod.ProjectileType("PlasmaBallBig"), 20, 7, Main.myPlayer, 0f, 0f);
                 }
             }
-           
+
         }
     }
 }
