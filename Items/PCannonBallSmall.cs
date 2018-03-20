@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -10,6 +11,8 @@ namespace TerrarianThroneMod.Items
 {
     public class PCannonBallSmall : ModProjectile
     {
+        private bool _beenThereDoneThat = false;
+        
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("PCannonBallSmall");
@@ -44,6 +47,12 @@ namespace TerrarianThroneMod.Items
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
+            if (_beenThereDoneThat)
+            {
+                return false; 
+            }
+            _beenThereDoneThat = true;
+            
             Player owner = Main.player[projectile.owner];
             //Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 0, mod.ProjectileType("PlasmaExplosion"), 50, 10, Main.myPlayer);
             float spread = 30f * 0.0174f;
