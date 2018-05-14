@@ -6,11 +6,11 @@ using Terraria.ModLoader;
 
 namespace TerrarianThroneMod.Items
 {
-    public class EHammerWave : ModProjectile
+    public class ESwordWave : ModProjectile
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("EHammerWave");
+            DisplayName.SetDefault("ESwordWave");
         }
         public override void SetDefaults()
         {

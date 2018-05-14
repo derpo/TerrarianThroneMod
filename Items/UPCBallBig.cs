@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
@@ -8,16 +6,16 @@ using Terraria.ModLoader;
 
 namespace TerrarianThroneMod.Items
 {
-    public class SPCBallSmall : ModProjectile
+    public class UPCBallBig : ModProjectile
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("SPCBallSmall");
+            DisplayName.SetDefault("UPCBallBig");
         }
         public override void SetDefaults()
         {
-            projectile.width = 15;
-            projectile.height = 15;
+            projectile.width = 25;
+            projectile.height = 25;
             projectile.aiStyle = 1;
             projectile.friendly = true;
             projectile.hostile = false;
@@ -45,19 +43,7 @@ namespace TerrarianThroneMod.Items
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
             Player owner = Main.player[projectile.owner];
-            float spread = 360f * 0.0174f;
-            double startAngle = Math.Atan2(projectile.velocity.X, projectile.velocity.Y) - spread / 2;
-            double deltaAngle = spread / 4f;
-            double offsetAngle;
-            int i;
-            if (projectile.owner == Main.myPlayer)
-            {
-                for (i = 0; i < 4; i++)
-                {
-                    offsetAngle = (startAngle + deltaAngle * i);
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 5f), (float)(Math.Cos(offsetAngle) * 5f), mod.ProjectileType("PCannonBallBig"), 20, 7, Main.myPlayer, 0f, 0f);
-                }
-            }
+            Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, projectile.velocity.X, projectile.velocity.Y, mod.ProjectileType("UPCBallSmall"), 1000, 10, Main.myPlayer);
 
             if (projectile.velocity.X != oldVelocity.X)
             {
@@ -78,19 +64,8 @@ namespace TerrarianThroneMod.Items
         {
             Main.PlaySound(2, (int)projectile.Center.X, (int)projectile.Center.Y, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/PlasmaHit"));
             Player owner = Main.player[projectile.owner];
-            float spread = 360f * 0.0174f;
-            double startAngle = Math.Atan2(projectile.velocity.X, projectile.velocity.Y) - spread / 2;
-            double deltaAngle = spread / 4f;
-            double offsetAngle;
-            int i;
-            if (projectile.owner == Main.myPlayer)
-            {
-                for (i = 0; i < 4; i++)
-                {
-                    offsetAngle = (startAngle + deltaAngle * i);
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 5f), (float)(Math.Cos(offsetAngle) * 5f), mod.ProjectileType("PCannonBallBig"), 20, 7, Main.myPlayer, 0f, 0f);
-                }
-            }
+            Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, projectile.velocity.X, projectile.velocity.Y, mod.ProjectileType("UPCBallMed"), 1000, 7, Main.myPlayer);
+
         }
     }
 }

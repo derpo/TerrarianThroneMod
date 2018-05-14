@@ -23,9 +23,9 @@ namespace TerrarianThroneMod.Items
             item.knockBack = 1;
             item.value = 10000;
             item.rare = 2;
-            item.shoot = mod.ProjectileType("NTBullet");
+            //item.shoot = mod.ProjectileType("NTBullet");
             item.shootSpeed = 5;
-            item.ammo = AmmoID.Bullet;
+            item.ammo = mod.ItemType("NTBulletAmmo");
         }
 
         public override void AddRecipes()

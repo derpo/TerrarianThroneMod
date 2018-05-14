@@ -8,11 +8,11 @@ using Terraria.ModLoader;
 
 namespace TerrarianThroneMod.Items
 {
-    public class SPCBallSmall : ModProjectile
+    public class UPCBallSmall : ModProjectile
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("SPCBallSmall");
+            DisplayName.SetDefault("UPCBallSmall");
         }
         public override void SetDefaults()
         {
@@ -47,15 +47,15 @@ namespace TerrarianThroneMod.Items
             Player owner = Main.player[projectile.owner];
             float spread = 360f * 0.0174f;
             double startAngle = Math.Atan2(projectile.velocity.X, projectile.velocity.Y) - spread / 2;
-            double deltaAngle = spread / 4f;
+            double deltaAngle = spread / 24f;
             double offsetAngle;
             int i;
             if (projectile.owner == Main.myPlayer)
             {
-                for (i = 0; i < 4; i++)
+                for (i = 0; i < 24; i++)
                 {
                     offsetAngle = (startAngle + deltaAngle * i);
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 5f), (float)(Math.Cos(offsetAngle) * 5f), mod.ProjectileType("PCannonBallBig"), 20, 7, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 5f), (float)(Math.Cos(offsetAngle) * 5f), mod.ProjectileType("PCannonBallBig"), 1000, 7, Main.myPlayer, 0f, 0f);
                 }
             }
 
@@ -80,15 +80,15 @@ namespace TerrarianThroneMod.Items
             Player owner = Main.player[projectile.owner];
             float spread = 360f * 0.0174f;
             double startAngle = Math.Atan2(projectile.velocity.X, projectile.velocity.Y) - spread / 2;
-            double deltaAngle = spread / 4f;
+            double deltaAngle = spread / 24f;
             double offsetAngle;
             int i;
             if (projectile.owner == Main.myPlayer)
             {
-                for (i = 0; i < 4; i++)
+                for (i = 0; i < 24; i++)
                 {
                     offsetAngle = (startAngle + deltaAngle * i);
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 5f), (float)(Math.Cos(offsetAngle) * 5f), mod.ProjectileType("PCannonBallBig"), 20, 7, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 5f), (float)(Math.Cos(offsetAngle) * 5f), mod.ProjectileType("PCannonBallBig"), 1000, 7, Main.myPlayer, 0f, 0f);
                 }
             }
         }

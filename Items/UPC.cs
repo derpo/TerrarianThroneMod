@@ -5,32 +5,36 @@ using Terraria.ModLoader;
 
 namespace TerrarianThroneMod.Items
 {
-    public class AssaultRifle : ModItem
+    public class UPC : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Assault Rifle");
-            Tooltip.SetDefault("Fires a 3-round burst of bullets.");
+            DisplayName.SetDefault("Ultra Plasma Cannon");
+            Tooltip.SetDefault("World Destroyer");
         }
         public override void SetDefaults()
         {
-            item.damage = 5;
+            item.damage = 1000;
             item.noMelee = true;
-            item.width = 52;
-            item.height = 22;
-            item.useTime = 4;
-            item.useAnimation = 12;
-            item.reuseDelay = 5;
+            item.width = 68;
+            item.height = 38;
+            item.useTime = 250;
+            item.useAnimation = 250;
             item.useStyle = 5;
-            item.knockBack = 1;
+            item.knockBack =20;
             item.value = 10000;
             item.rare = 2;
-            item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/AssaultRifleShot");
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/UPCShot");
             item.autoReuse = false;
-            item.useAmmo = mod.ItemType("NTBulletAmmo");
+            item.useAmmo = mod.ItemType("EnergyAmmo");
             item.ranged = true;
-            item.shoot = mod.ProjectileType("NTBullet");
-            item.shootSpeed = 10;
+            item.shoot = mod.ProjectileType("UPCBallBig");
+            item.shootSpeed = 0.2f;
+        }
+
+        public override Vector2? HoldoutOffset()
+        {
+            return new Vector2(-10, -2);
         }
 
         public override void AddRecipes()
@@ -40,11 +44,6 @@ namespace TerrarianThroneMod.Items
             recipe.AddTile(TileID.WorkBenches);
             recipe.SetResult(this);
             recipe.AddRecipe();
-        }
-
-        public override Vector2? HoldoutOffset()
-        {
-            return new Vector2(-2, 0);
         }
     }
 }

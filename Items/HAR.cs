@@ -5,31 +5,31 @@ using Terraria.ModLoader;
 
 namespace TerrarianThroneMod.Items
 {
-    public class AssaultRifle : ModItem
+    public class HAR : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Assault Rifle");
-            Tooltip.SetDefault("Fires a 3-round burst of bullets.");
+            DisplayName.SetDefault("Heavy Assault Rifle");
+            Tooltip.SetDefault("Fires a 3-round burst of heavy bullets.");
         }
         public override void SetDefaults()
         {
-            item.damage = 5;
+            item.damage = 35;
             item.noMelee = true;
-            item.width = 52;
-            item.height = 22;
+            item.width = 58;
+            item.height = 24;
             item.useTime = 4;
             item.useAnimation = 12;
-            item.reuseDelay = 5;
+            item.reuseDelay = 1;
             item.useStyle = 5;
-            item.knockBack = 1;
+            item.knockBack = 2;
             item.value = 10000;
             item.rare = 2;
-            item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/AssaultRifleShot");
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/HARShot");
             item.autoReuse = false;
             item.useAmmo = mod.ItemType("NTBulletAmmo");
             item.ranged = true;
-            item.shoot = mod.ProjectileType("NTBullet");
+            item.shoot = mod.ProjectileType("HeavyBullet");
             item.shootSpeed = 10;
         }
 
